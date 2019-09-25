@@ -1,5 +1,13 @@
 {
   "name": "passion_test",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "dotenv": "^8.1.0",
+    "react-sortable-tree": "^2.6.2"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:xmarvin/passion_test.git",
+  "author": "Alexey Kisel <kisel.alexey@gmail.com>",
+  "license": "MIT"
 }
