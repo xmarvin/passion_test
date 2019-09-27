@@ -5,7 +5,7 @@ import { cloneDeep } from 'lodash';
 export default class CoursesList extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {data: []}
+    this.state = {data: [], key: 1}
     this.host = 'http://localhost:3000'
   }
   componentWillUnmount() {
@@ -27,6 +27,7 @@ export default class CoursesList extends React.Component {
     return (
      <SuperTreeView
     data={ this.state.data }
+    key = { this.state.key }
     onUpdateCb={(updatedData) => {
         this.setState({data: updatedData})
     }}
@@ -71,12 +72,7 @@ export default class CoursesList extends React.Component {
                 node.isChildrenLoading = false;
                 node.isExpanded = true;
                 node.children = records
-                const updatedData = cloneDeep(self.state.data);
-                updatedData.push({name: 'Addd'});
-                self.setState({data: updatedData})
-                const updatedData2 = cloneDeep(self.state.data);
-                updatedData2.pop();
-                self.setState({data: updatedData2})
+                self.setState({key: Math.random()})
               });
         }
     }}
