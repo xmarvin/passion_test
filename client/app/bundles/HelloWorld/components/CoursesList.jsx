@@ -58,12 +58,19 @@ export default class CoursesList extends React.Component {
 
             fetch(url)
               .then(function(response) {
-                return response.json();
+                return response.json()
               })
               .then(function(json) {
+                let records = json.records
+                if (depth == 1){
+                  records = json.records.map(function(el) {
+                    el.name = el.name + " (by " + el.author + ")"
+                    return el
+                  });
+                }
                 node.isChildrenLoading = false;
                 node.isExpanded = true;
-                node.children = json.records
+                node.children = records
                 const updatedData = cloneDeep(self.state.data);
                 updatedData.push({name: 'Addd'});
                 self.setState({data: updatedData})

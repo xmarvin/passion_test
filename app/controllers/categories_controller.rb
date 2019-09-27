@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   def index
-    @categories = Category
+    @categories = Category.active
     if params[:vertical_id].present?
       @categories = @categories.where(vertical_id: params[:vertical_id])
     end
